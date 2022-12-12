@@ -1,0 +1,135 @@
+aside {
+  height: calc(100vh - var(--header-height));
+  width: 100vw;
+  position: fixed;
+  background-color: var(--extra-color);
+  left: 0;
+  top: var(--header-height);
+  display: flex;
+  place-items: center;
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 0.4s ease-in-out;
+  justify-content: center;
+  gap: 7vw;
+}
+
+aside.active {
+  transform: scaleY(1);
+}
+
+aside form {
+  width: clamp(300px, 45vw, 450px);
+  display: grid;
+  gap: 2vh;
+  padding: 2vh 2vw;
+  background-color: #374158;
+  border-radius: 5px;
+  position: relative;
+}
+
+aside fieldset {
+  border: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+aside fieldset input {
+  width: 75%;
+  border-radius: 5px;
+}
+
+aside fieldset:last-of-type {
+  flex-direction: column;
+  align-items: baseline;
+  gap: 1vh;
+}
+
+aside fieldset textarea {
+  width: 100%;
+  resize: none;
+  border-radius: 5px;
+}
+
+aside form button:last-of-type {
+  background-color: #374158;
+  color: var(--main-color);
+  padding: 1vh 1.5vw;
+  border-radius: 30px;
+  border: 2px solid;
+  transition: 0.3s ease-out;
+  animation: cvBox 3s cubic-bezier(0.7, 0, 0.4, 1) infinite;
+  width: fit-content;
+  margin: 0 auto;
+  font-size: 1.3rem;
+  font-weight: 800;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+aside form button:last-of-type:hover,
+aside form button:last-of-type:focus-within {
+  background-color: var(--main-color);
+  color: #11151d;
+}
+
+aside form button:first-of-type {
+  --burger-height: 2rem;
+  height: var(--burger-height);
+  width: 2.5rem;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transform: translate(50%, -50%);
+  transition: 0.5s ease-out;
+}
+
+aside form button:first-of-type:hover,
+aside form button:first-of-type:focus-within {
+  transform: translate(50%, -50%) rotate(360deg) scale(1.2);
+}
+
+aside form button:first-of-type:hover span,
+aside form button:first-of-type:focus-within span {
+  background-color: var(--main-color);
+}
+
+aside button:first-of-type span {
+  height: 10%;
+  width: 100%;
+  border-radius: 100vmax;
+  background-color: var(--secondary-color);
+  display: block;
+  position: absolute;
+  transition: background-color 0.5s ease-out;
+}
+
+aside button:first-of-type span:first-of-type {
+  transform: rotate(45deg);
+}
+
+aside button:first-of-type span:last-of-type {
+  transform: rotate(-45deg);
+}
+
+aside div {
+  background-color: #374158;
+  padding: 2vh 2vw;
+  border-radius: 5px;
+}
+
+aside div h2 {
+  padding-bottom: 1vh;
+}
+
+aside div p {
+  padding-bottom: 2vh;
+}
+
+@media screen and (max-width: 800px) {
+  aside {
+    display: flex;
+    flex-direction: column;
+  }
+}
